@@ -1,0 +1,21 @@
+
+ncks -O --mk_rec_dmn time temp1.nc temp_with_rec_dmn.nc
+
+# Add standard_name, long_name, units, and axis attributes to lon
+ncatted -O -a standard_name,lon,c,c,"longitude" temp_with_rec_dmn.nc
+ncatted -O -a long_name,lon,c,c,"longitude" temp_with_rec_dmn.nc
+ncatted -O -a units,lon,c,c,"degrees_east" temp_with_rec_dmn.nc
+ncatted -O -a axis,lon,c,c,"X" temp_with_rec_dmn.nc
+
+# Add standard_name, long_name, units, and axis attributes to lat
+ncatted -O -a standard_name,lat,c,c,"latitude" temp_with_rec_dmn.nc
+ncatted -O -a long_name,lat,c,c,"latitude" temp_with_rec_dmn.nc
+ncatted -O -a units,lat,c,c,"degrees_north" temp_with_rec_dmn.nc
+ncatted -O -a axis,lat,c,c,"Y" temp_with_rec_dmn.nc
+
+# Ensure the heff variable has coordinates attribute set
+ncatted -O -a coordinates,heff,c,c,"lat lon" temp_with_rec_dmn.nc
+
+# Verify the adjustments
+ncdump -h temp_with_rec_dmn.nc
+

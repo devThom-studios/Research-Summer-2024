@@ -1,0 +1,1 @@
+I assessed model performance in representing sea ice concentration, compared against observational products. Implemented bias metrics and percentiles using CDO, Python, etc. Model data was from CMIP6 whule the observation data were from HADISST, PIOMASS, etc. The technical report in this directory summary everything.
